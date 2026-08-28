@@ -13,9 +13,7 @@
 
 //==================== ADPLL_modules.v ====================
 
-//==============================================================================
-// File    : pfd.v  (UNCHANGED from Anjali's original)
-//==============================================================================
+
 `timescale 1ps/1ps
 module pfd(
     input  wire IN,
@@ -52,7 +50,7 @@ module pfd(
 endmodule
 
 //==============================================================================
-// File    : FILTER.v  (UNCHANGED from Anjali's original)
+// File    : FILTER.v  
 //==============================================================================
 `timescale 1ps/1ps
 module FILTER(
@@ -95,7 +93,7 @@ module FILTER(
 endmodule
 
 //==============================================================================
-// File    : CONTROLLER.v  (UNCHANGED from Anjali's original)
+// File    : CONTROLLER.v  
 //==============================================================================
 module CONTROLLER(
     input        reset,
@@ -151,7 +149,7 @@ module CONTROLLER(
 endmodule
 
 //==============================================================================
-// File    : FREQ_DIV.v  (UNCHANGED from Anjali's original)
+// File    : FREQ_DIV.v  
 //==============================================================================
 `timescale 1ps/1ps
 module FREQ_DIV(
@@ -290,7 +288,7 @@ endmodule
 //==============================================================================
 // Module  : DCO  (jitter-enhanced behavioral model)
 // Project : Adaptive Hardware Security — Mixed-Signal ADPLL
-// Author  : Dhruv Sharma  (jitter extension)  |  Original: Anjali
+//
 //
 // Changes from original:
 //   1. Added Gaussian jitter on every half-period using Box-Muller transform.
@@ -560,7 +558,7 @@ endmodule
 //==============================================================================
 // Module  : JITTER_MEASURE
 // Project : Adaptive Hardware Security — Mixed-Signal ADPLL
-// Author  : Dhruv Sharma  |  PES University
+//
 //
 // Purpose : Measures and reports three types of output clock jitter
 //           on any periodic signal (OUT_CLK or REF_CLK).
@@ -742,7 +740,7 @@ endmodule
 // =============================================================================
 // Module  : ro_puf
 // Project : Adaptive Hardware Security — MixLock ADPLL
-// Author  : Dhruv Sharma  |  PES University
+//
 //
 // Structural Ring-Oscillator PUF.
 // -----------------------------------------------------------------------
@@ -918,7 +916,7 @@ endmodule
 // =============================================================================
 // Module  : fuzzy_extractor
 // Project : Adaptive Hardware Security — MixLock ADPLL
-// Author  : Dhruv Sharma  |  PES University
+
 // =============================================================================
 `timescale 1ps/1ps
 module fuzzy_extractor (
@@ -1009,7 +1007,7 @@ endmodule
 // =============================================================================
 // Module  : puf_top
 // Project : Adaptive Hardware Security — MixLock ADPLL
-// Author  : Dhruv Sharma  |  PES University
+
 // =============================================================================
 `timescale 1ps/1ps
 module puf_top #(
@@ -1061,7 +1059,7 @@ endmodule
 // =============================================================================
 // Module  : disorc_key_manager
 // Project : Adaptive Hardware Security — MixLock ADPLL
-// Author  : Dhruv Sharma  |  PES University
+
 // =============================================================================
 `timescale 1ps/1ps
 module disorc_key_manager #(
@@ -1101,7 +1099,6 @@ endmodule
 // =============================================================================
 // Module  : trll_locked_M
 // Project : Adaptive Hardware Security — MixLock ADPLL
-// Author  : Dhruv Sharma  |  PES University
 //
 // Purpose : TRLL (Truly Random Logic Locking) applied to the 3-bit
 //           division ratio M that controls Anjali's FREQ_DIV module.
@@ -1169,9 +1166,7 @@ endmodule
 
 // =============================================================================
 // Module  : mixlock_adpll_top
-// Project : Adaptive Hardware Security — MixLock ADPLL
-// Author  : Dhruv Sharma  |  PES University
-//
+
 // Integration summary
 // -------------------
 //   BLOCK A — puf_top
@@ -1287,7 +1282,7 @@ module mixlock_adpll_top #(
     assign key_diff_obs = key_diff;
     assign M_locked_obs = M_locked;
 
-    // ── BLOCK D: Anjali's ADPLL (jitter-enhanced DCO) ─────────────────────────
+    
     // M_locked replaces the original M2/M1/M0 from the test module.
     ADPLL u_adpll (
         .REF_CLK       (REF_CLK),
